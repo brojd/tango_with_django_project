@@ -20,3 +20,6 @@ class Page(models.Model):
     url = models.URLField()
     views = models.IntegerField(default=0)
     
+    def __unicode__(self):
+        return self.title
+    
