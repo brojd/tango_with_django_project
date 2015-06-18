@@ -24,3 +24,12 @@ class PageForm(forms.ModelForm):
         model = Page
         exclude = ('category',)
     
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        url = cleaned.data('url')
+        
+        if url and not url.startwith('http://'):
+            url = 'http://' + url
+            cleaned_data['url'] = url
+        
+        return cleaned_data
