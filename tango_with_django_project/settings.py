@@ -102,3 +102,5 @@ STATIC_URL = '/static/'
 #Media files
 
 MEDIA_URL = '/media/'
+
+LOGIN_URL = '/rango/login/'
