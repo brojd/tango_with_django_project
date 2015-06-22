@@ -19,7 +19,7 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'rango/about.html')
+    return render(request, 'rango/about.html', {})
 
 
 def category(request, category_name_slug):
@@ -67,7 +67,7 @@ def add_page(request, category_name_slug):
                 page.category = cat
                 page.views = 0
                 page.save()
-                return category(request, category_name_slug)
+                return category(request, category_name_slug, {})
             
         else:
             print form.errors
@@ -137,4 +137,4 @@ def restricted(request):
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect('/rango/')
+    return render(request, "rango/index.html", {})
